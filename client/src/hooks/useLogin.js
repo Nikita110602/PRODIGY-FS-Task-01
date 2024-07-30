@@ -15,7 +15,7 @@ const useLogin = () => {
         let response = await fetch("http://localhost:8000/api/auth/login/",{
             method: "post",
             headers: {
-                "Content-Type": "application/json",
+                "Content-Type": "application/json", 
               },
             credentials: 'include',
             body: JSON.stringify(data),

@@ -1,33 +1,34 @@
-import React, { useEffect, useState } from 'react'
-import UserComponent from '../components/UserComponent'
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import UserComponent from '../components/UserComponent';
+import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../context/authContext';
 import useGetUser from '../hooks/useGetUser';
 import LogOutComponent from '../components/LogOutComponent';
 
 export default function UserPage() {
-  const {isAuth,setIsAuth } = useAuthContext();
-  const {getUser} = useGetUser();
-  const navigator = useNavigate();
-  let [data,setData] = useState([[]]);
-  useEffect(()=>{
-     const fetchData = async() => {
-      const userData = await getUser()
+  const { setIsAuth } = useAuthContext();
+  const { getUser } = useGetUser();
+  const navigate = useNavigate();
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const userData = await getUser();
       if (userData) {
-        setData(userData)
-      }
-      else{
+        setData(userData);
+      } else {
         localStorage.removeItem("authUser");
-        setIsAuth(false)
-        navigator("/login")
+        setIsAuth(false);
+        navigate("/login");
       }
-     }
-     fetchData()
-  },[])
+    };
+    fetchData();
+  }, [getUser, setIsAuth, navigate]);
+
   return (
     <>
-      <UserComponent Data = {data}/>
+      <UserComponent Data={data} />
       <LogOutComponent />
     </>
-  )
+  );
 }
