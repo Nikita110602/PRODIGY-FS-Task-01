@@ -4,5 +4,5 @@ const generateAndSetCookies = (userId) => {
     console.log(userId);
     return jwt.sign({userId},process.env.SECRET,{expiresIn:"15d"})
 }
-
+//fd
 export default generateAndSetCookies;
