@@ -8,7 +8,6 @@ const userSchema = new mongoose.Schema({
     Username:{
         type:String,
         required:true,
-        unique:true
     },
     Password:{
         type:String,
@@ -25,6 +24,6 @@ const userSchema = new mongoose.Schema({
         enum:["male","female"]
     }
 },{timestamps: true})
-const User = mongoose.model("User",userSchema);
+const User = mongoose.model("worker",userSchema);
 
 export default User;
