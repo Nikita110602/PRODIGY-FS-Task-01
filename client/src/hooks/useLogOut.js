@@ -7,7 +7,7 @@ const useLogOut = () => {
   const { setIsAuth } = useAuthContext();
 
   const logOut = async () => {
-    const response = await fetch("http://localhost:8000/api/auth/logOut", {
+    const response = await fetch("https://prodigy-fs-task-01.onrender.com/api/auth/logOut", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
