@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: 'http://localhost:5173', // Your front-end local domain
+    origin: 'https://prodigy-fs-task-01.vercel.app/', // Your front-end local domain
     credentials: true // Allow credentials (cookies) to be sent
 }));
 
