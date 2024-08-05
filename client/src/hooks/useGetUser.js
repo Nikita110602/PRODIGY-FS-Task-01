@@ -2,7 +2,7 @@
 
 const useGetUser = () => {
     const getUser = async () => {
-        const response = await fetch('http://localhost:8000/api/users/',{
+        const response = await fetch('https://prodigy-fs-task-01.onrender.com/api/users/',{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
