@@ -12,7 +12,7 @@ const useLogin = () => {
 
         if (!success) return; 
 
-        let response = await fetch("http://localhost:8000/api/auth/login/",{
+        let response = await fetch("https://prodigy-fs-task-01.onrender.com/api/auth/login/",{
             method: "post",
             headers: {
                 "Content-Type": "application/json", 
